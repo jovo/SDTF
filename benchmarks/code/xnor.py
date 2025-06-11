@@ -2,6 +2,7 @@
 Coauthors: Nick Hahn
            Haoyin Xu
 """
+
 import argparse
 import xor_functions as fn
 

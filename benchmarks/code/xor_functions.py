@@ -2,17 +2,18 @@
 Coauthors: Nick Hahn
            Will LeVine
 """
+
 import numpy as np
 from sklearn.datasets import make_blobs
-from skgarden import MondrianForestClassifier
+# from skgarden import MondrianForestClassifier
 import seaborn as sns
 import matplotlib.pyplot as plt
 from matplotlib.ticker import ScalarFormatter
-from sdtf import StreamDecisionForest
-from sklearn.tree import DecisionTreeClassifier
-from proglearn.forest import LifelongClassificationForest
-from proglearn.sims import generate_gaussian_parity
-from river import tree
+# from sdtf import StreamDecisionForest
+# from sklearn.tree import DecisionTreeClassifier
+# from proglearn.forest import LifelongClassificationForest
+# from proglearn.sims import generate_gaussian_parity
+# from river import tree
 import ast
 
 from toolbox import *
@@ -64,7 +65,7 @@ def ht_predict(ht, test_x_xor, test_x_rxor):
 
 
 def experiment(angle, classifiers, n_xor, n_rxor, n_test):
-    """Perform XOR RXOR(XNOR) XOR experiment"""
+    """Perform XOR R-XOR(XNOR) XOR experiment"""
     X_xor, y_xor = generate_gaussian_parity(n_xor)
     X_rxor, y_rxor = generate_gaussian_parity(n_rxor, angle_params=angle)
     X_xor_2, y_xor_2 = generate_gaussian_parity(n_xor)
@@ -155,16 +156,18 @@ def experiment(angle, classifiers, n_xor, n_rxor, n_test):
 def r_xor_plot_error(mean_error):
     """Plot Generalization Errors"""
     algorithms = [
-        "Hoeffding Tree ",
-        "Mondrian Forest",
-        "Stream Decision Tree",
-        "Stream Decision Forest",
+        "HT",
+        "MF",
+        "XTree",
+        "XForest",
         "Synergistic Forest",
     ]
     fontsize = 30
     labelsize = 28
     ls = ["-", "--"]
-    colors = sns.color_palette("bright")
+    sns.set_theme(
+        color_codes=True, palette="bright", style="ticks", context="talk"
+    )
     fig = plt.figure(figsize=(21, 14))
     gs = fig.add_gridspec(14, 21)
     ax1 = fig.add_subplot(gs[7:, :6])
@@ -173,8 +176,9 @@ def r_xor_plot_error(mean_error):
         (100 * np.arange(0.25, 22.75, step=0.25)).astype(int),
         mean_error[0],
         label=algorithms[0],
-        c=colors[4],
-        ls=ls[np.sum(1 > 1).astype(int)],
+        c="g",
+        linestyle="--",
+        # ls=ls[np.sum(1 > 1).astype(int)],
         lw=3,
     )
     # Mondrian Forest XOR
@@ -182,7 +186,7 @@ def r_xor_plot_error(mean_error):
         (100 * np.arange(0.25, 22.75, step=0.25)).astype(int),
         mean_error[2],
         label=algorithms[1],
-        c=colors[5],
+        c="y",
         ls=ls[np.sum(1 > 1).astype(int)],
         lw=3,
     )
@@ -191,8 +195,9 @@ def r_xor_plot_error(mean_error):
         (100 * np.arange(0.25, 22.75, step=0.25)).astype(int),
         mean_error[4],
         label=algorithms[2],
-        c=colors[2],
-        ls=ls[np.sum(1 > 1).astype(int)],
+        c="r",
+        linestyle="--",
+        # ls=ls[np.sum(1 > 1).astype(int)],
         lw=3,
     )
     # Stream Decision Forest XOR
@@ -200,19 +205,19 @@ def r_xor_plot_error(mean_error):
         (100 * np.arange(0.25, 22.75, step=0.25)).astype(int),
         mean_error[6],
         label=algorithms[3],
-        c=colors[3],
+        c="r",
         ls=ls[np.sum(1 > 1).astype(int)],
         lw=3,
     )
     # Synergistic Forest XOR
-    ax1.plot(
-        (100 * np.arange(0.25, 22.75, step=0.25)).astype(int),
-        mean_error[8],
-        label=algorithms[4],
-        c=colors[9],
-        ls=ls[np.sum(1 > 1).astype(int)],
-        lw=3,
-    )
+    # ax1.plot(
+    #     (100 * np.arange(0.25, 22.75, step=0.25)).astype(int),
+    #     mean_error[8],
+    #     label=algorithms[4],
+    #     c=colors[9],
+    #     ls=ls[np.sum(1 > 1).astype(int)],
+    #     lw=3,
+    # )
     ax1.set_ylabel("Generalization Error (XOR)", fontsize=fontsize)
     ax1.set_xlabel("Total Sample Size", fontsize=fontsize)
     ax1.tick_params(labelsize=labelsize)
@@ -229,10 +234,10 @@ def r_xor_plot_error(mean_error):
     top_side.set_visible(False)
 
     ax1.text(200, np.mean(ax1.get_ylim()) + 0.5, "XOR", fontsize=26)
-    ax1.text(850, np.mean(ax1.get_ylim()) + 0.5, "RXOR", fontsize=26)
+    ax1.text(850, np.mean(ax1.get_ylim()) + 0.5, "R-XOR", fontsize=26)
     ax1.text(1700, np.mean(ax1.get_ylim()) + 0.5, "XOR", fontsize=26)
 
-    ######## RXOR
+    ######## R-XOR
     ax1 = fig.add_subplot(gs[7:, 8:14])
     rxor_range = (100 * np.arange(0.25, 22.75, step=0.25)).astype(int)[30:]
 
@@ -241,8 +246,9 @@ def r_xor_plot_error(mean_error):
         rxor_range,
         mean_error[1, 30:],
         label=algorithms[0],
-        c=colors[4],
-        ls=ls[np.sum(1 > 1).astype(int)],
+        c="g",
+        linestyle="--",
+        # ls=ls[np.sum(1 > 1).astype(int)],
         lw=3,
     )
     # Mondrian Forest R-XOR
@@ -250,7 +256,7 @@ def r_xor_plot_error(mean_error):
         rxor_range,
         mean_error[3, 30:],
         label=algorithms[1],
-        c=colors[5],
+        c="y",
         ls=ls[np.sum(1 > 1).astype(int)],
         lw=3,
     )
@@ -259,8 +265,9 @@ def r_xor_plot_error(mean_error):
         rxor_range,
         mean_error[5, 30:],
         label=algorithms[2],
-        c=colors[2],
-        ls=ls[np.sum(1 > 1).astype(int)],
+        c="r",
+        linestyle="--",
+        # ls=ls[np.sum(1 > 1).astype(int)],
         lw=3,
     )
     # Stream Decision Forest R-XOR
@@ -268,21 +275,21 @@ def r_xor_plot_error(mean_error):
         rxor_range,
         mean_error[7, 30:],
         label=algorithms[3],
-        c=colors[3],
+        c="r",
         ls=ls[np.sum(1 > 1).astype(int)],
         lw=3,
     )
     # Synergistic Forest R-XOR
-    ax1.plot(
-        rxor_range,
-        mean_error[9, 30:],
-        label=algorithms[4],
-        c=colors[9],
-        ls=ls[np.sum(1 > 1).astype(int)],
-        lw=3,
-    )
+    # ax1.plot(
+    #     rxor_range,
+    #     mean_error[9, 30:],
+    #     label=algorithms[4],
+    #     c=colors[9],
+    #     ls=ls[np.sum(1 > 1).astype(int)],
+    #     lw=3,
+    # )
 
-    ax1.set_ylabel("Generalization Error (%s)" % "RXOR", fontsize=fontsize)
+    ax1.set_ylabel("Generalization Error (%s)" % "R-XOR", fontsize=fontsize)
     ax1.legend(bbox_to_anchor=(1.05, 1.0), loc="upper left", fontsize=20, frameon=False)
     ax1.set_xlabel("Total Sample Size", fontsize=fontsize)
     ax1.tick_params(labelsize=labelsize)
@@ -298,23 +305,26 @@ def r_xor_plot_error(mean_error):
     top_side.set_visible(False)
 
     ax1.text(200, np.mean(ax1.get_ylim()) + 0.5, "XOR", fontsize=26)
-    ax1.text(850, np.mean(ax1.get_ylim()) + 0.5, "RXOR", fontsize=26)
+    ax1.text(850, np.mean(ax1.get_ylim()) + 0.5, "R-XOR", fontsize=26)
     ax1.text(1700, np.mean(ax1.get_ylim()) + 0.5, "XOR", fontsize=26)
+    plt.savefig("../paper/xor_rxor.pdf", transparent=True, bbox_inches="tight")
 
 
 def xnor_plot_error(mean_error):
     """Plot Generalization Errors"""
     algorithms = [
-        "Hoeffding Tree ",
-        "Mondrian Forest",
-        "Stream Decision Tree",
-        "Stream Decision Forest",
+        "HT",
+        "MF",
+        "XTree",
+        "XForest",
         "Synergistic Forest",
     ]
     fontsize = 30
     labelsize = 28
     ls = ["-", "--"]
-    colors = sns.color_palette("bright")
+    sns.set_theme(
+        color_codes=True, palette="bright", style="ticks", context="talk"
+    )
     fig = plt.figure(figsize=(21, 14))
     gs = fig.add_gridspec(14, 21)
     ax1 = fig.add_subplot(gs[7:, :6])
@@ -323,8 +333,9 @@ def xnor_plot_error(mean_error):
         (100 * np.arange(0.25, 22.75, step=0.25)).astype(int),
         mean_error[0],
         label=algorithms[0],
-        c=colors[4],
-        ls=ls[np.sum(1 > 1).astype(int)],
+        c="g",
+        linestyle="--",
+        # ls=ls[np.sum(1 > 1).astype(int)],
         lw=3,
     )
     # Mondrian Forest XOR
@@ -332,7 +343,7 @@ def xnor_plot_error(mean_error):
         (100 * np.arange(0.25, 22.75, step=0.25)).astype(int),
         mean_error[2],
         label=algorithms[1],
-        c=colors[5],
+        c="y",
         ls=ls[np.sum(1 > 1).astype(int)],
         lw=3,
     )
@@ -341,8 +352,9 @@ def xnor_plot_error(mean_error):
         (100 * np.arange(0.25, 22.75, step=0.25)).astype(int),
         mean_error[4],
         label=algorithms[2],
-        c=colors[2],
-        ls=ls[np.sum(1 > 1).astype(int)],
+        c="r",
+        linestyle="--",
+        # ls=ls[np.sum(1 > 1).astype(int)],
         lw=3,
     )
     # Stream Decision Forest XOR
@@ -350,19 +362,19 @@ def xnor_plot_error(mean_error):
         (100 * np.arange(0.25, 22.75, step=0.25)).astype(int),
         mean_error[6],
         label=algorithms[3],
-        c=colors[3],
+        c="r",
         ls=ls[np.sum(1 > 1).astype(int)],
         lw=3,
     )
     # Synergistic Forest XOR
-    ax1.plot(
-        (100 * np.arange(0.25, 22.75, step=0.25)).astype(int),
-        mean_error[8],
-        label=algorithms[4],
-        c=colors[9],
-        ls=ls[np.sum(1 > 1).astype(int)],
-        lw=3,
-    )
+    # ax1.plot(
+    #     (100 * np.arange(0.25, 22.75, step=0.25)).astype(int),
+    #     mean_error[8],
+    #     label=algorithms[4],
+    #     c=colors[9],
+    #     ls=ls[np.sum(1 > 1).astype(int)],
+    #     lw=3,
+    # )
     ax1.set_ylabel("Generalization Error (XOR)", fontsize=fontsize)
     ax1.set_xlabel("Total Sample Size", fontsize=fontsize)
     ax1.tick_params(labelsize=labelsize)
@@ -390,8 +402,9 @@ def xnor_plot_error(mean_error):
         xnor_range,
         mean_error[1, 30:],
         label=algorithms[0],
-        c=colors[4],
-        ls=ls[np.sum(1 > 1).astype(int)],
+        c="g",
+        linestyle="--",
+        # ls=ls[np.sum(1 > 1).astype(int)],
         lw=3,
     )
     # Mondrian Forest XNOR
@@ -399,7 +412,7 @@ def xnor_plot_error(mean_error):
         xnor_range,
         mean_error[3, 30:],
         label=algorithms[1],
-        c=colors[5],
+        c="y",
         ls=ls[np.sum(1 > 1).astype(int)],
         lw=3,
     )
@@ -408,8 +421,9 @@ def xnor_plot_error(mean_error):
         xnor_range,
         mean_error[5, 30:],
         label=algorithms[2],
-        c=colors[2],
-        ls=ls[np.sum(1 > 1).astype(int)],
+        c="r",
+        linestyle="--",
+        # ls=ls[np.sum(1 > 1).astype(int)],
         lw=3,
     )
     # Stream Decision Forest XNOR
@@ -417,19 +431,19 @@ def xnor_plot_error(mean_error):
         xnor_range,
         mean_error[7, 30:],
         label=algorithms[3],
-        c=colors[3],
+        c="r",
         ls=ls[np.sum(1 > 1).astype(int)],
         lw=3,
     )
     # Synergistic Forest XNOR
-    ax1.plot(
-        xnor_range,
-        mean_error[9, 30:],
-        label=algorithms[4],
-        c=colors[9],
-        ls=ls[np.sum(1 > 1).astype(int)],
-        lw=3,
-    )
+    # ax1.plot(
+    #     xnor_range,
+    #     mean_error[9, 30:],
+    #     label=algorithms[4],
+    #     c=colors[9],
+    #     ls=ls[np.sum(1 > 1).astype(int)],
+    #     lw=3,
+    # )
 
     ax1.set_ylabel("Generalization Error (%s)" % "XNOR", fontsize=fontsize)
     ax1.legend(bbox_to_anchor=(1.05, 1.0), loc="upper left", fontsize=20, frameon=False)
@@ -449,7 +463,7 @@ def xnor_plot_error(mean_error):
     ax1.text(200, np.mean(ax1.get_ylim()) + 0.5, "XOR", fontsize=26)
     ax1.text(850, np.mean(ax1.get_ylim()) + 0.5, "XNOR", fontsize=26)
     ax1.text(1700, np.mean(ax1.get_ylim()) + 0.5, "XOR", fontsize=26)
-
+    plt.savefig("../paper/xor_xnor.pdf", transparent=True, bbox_inches="tight")
 
 def plot_xor_rxor_xor(num_data_points):
     """Visualize Gaussian XOR and Gaussian R-XOR Data"""
