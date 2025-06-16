@@ -7,8 +7,10 @@ import argparse
 from numpy.random import permutation
 import json
 import openml
+
 # import sklearn
 from sklearn.model_selection import StratifiedKFold, train_test_split
+
 # from sklearn.ensemble import GradientBoostingClassifier
 from xgboost import XGBClassifier
 import warnings
@@ -28,11 +30,13 @@ def experiment_xgb(X_train, X_test, y_train, y_test):
     batch_counts = len(y_train) / BATCH_SIZE
     for i in range(int(batch_counts)):
         train_size = (i + 1) * BATCH_SIZE
-        if train_size>=len(y_train)-len(np.unique(y_train)):
+        if train_size >= len(y_train) - len(np.unique(y_train)):
             X_t = X_train
             y_t = y_train
         else:
-            X_t, _, y_t, _  = train_test_split(X_train, y_train, train_size=train_size, stratify=y_train)
+            X_t, _, y_t, _ = train_test_split(
+                X_train, y_train, train_size=train_size, stratify=y_train
+            )
         # X_t = X_train[: (i + 1) * BATCH_SIZE]
         # y_t = y_train[: (i + 1) * BATCH_SIZE]
 
@@ -173,7 +177,9 @@ for data_id in DATA_IDS:
         X_train = X_train[p]
         y_train = y_train[p]
 
-        xgb_acc, xgb_train_t, xgb_test_t = experiment_xgb(X_train, X_test, y_train, y_test)
+        xgb_acc, xgb_train_t, xgb_test_t = experiment_xgb(
+            X_train, X_test, y_train, y_test
+        )
         xgb_acc_dict[data_id].append(xgb_acc)
         xgb_train_t_dict[data_id].append(xgb_train_t)
         xgb_test_t_dict[data_id].append(xgb_test_t)

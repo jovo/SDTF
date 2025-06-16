@@ -141,7 +141,6 @@ temp.pickle*
 !benchmarks/results/
 !benchmarks/requirements.txt
 !benchmarks/README.md
-benchmarks/results/zero
 
 # Azure files
 .amlignore

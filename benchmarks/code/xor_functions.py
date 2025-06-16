@@ -5,10 +5,12 @@ Coauthors: Nick Hahn
 
 import numpy as np
 from sklearn.datasets import make_blobs
+
 # from skgarden import MondrianForestClassifier
 import seaborn as sns
 import matplotlib.pyplot as plt
 from matplotlib.ticker import ScalarFormatter
+
 # from sdtf import StreamDecisionForest
 # from sklearn.tree import DecisionTreeClassifier
 # from proglearn.forest import LifelongClassificationForest
@@ -165,9 +167,7 @@ def r_xor_plot_error(mean_error):
     fontsize = 30
     labelsize = 28
     ls = ["-", "--"]
-    sns.set_theme(
-        color_codes=True, palette="bright", style="ticks", context="talk"
-    )
+    sns.set_theme(color_codes=True, palette="bright", style="ticks", context="talk")
     fig = plt.figure(figsize=(21, 14))
     gs = fig.add_gridspec(14, 21)
     ax1 = fig.add_subplot(gs[7:, :6])
@@ -322,9 +322,7 @@ def xnor_plot_error(mean_error):
     fontsize = 30
     labelsize = 28
     ls = ["-", "--"]
-    sns.set_theme(
-        color_codes=True, palette="bright", style="ticks", context="talk"
-    )
+    sns.set_theme(color_codes=True, palette="bright", style="ticks", context="talk")
     fig = plt.figure(figsize=(21, 14))
     gs = fig.add_gridspec(14, 21)
     ax1 = fig.add_subplot(gs[7:, :6])
@@ -464,6 +462,7 @@ def xnor_plot_error(mean_error):
     ax1.text(850, np.mean(ax1.get_ylim()) + 0.5, "XNOR", fontsize=26)
     ax1.text(1700, np.mean(ax1.get_ylim()) + 0.5, "XOR", fontsize=26)
     plt.savefig("../paper/xor_xnor.pdf", transparent=True, bbox_inches="tight")
+
 
 def plot_xor_rxor_xor(num_data_points):
     """Visualize Gaussian XOR and Gaussian R-XOR Data"""
