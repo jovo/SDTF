@@ -1,4 +1,4 @@
-# Streaming Decision Trees & Forests
+# XTrees & XForests
 
 [![arXiv](https://img.shields.io/badge/arXiv-2110.08483-red.svg?style=flat)](https://arxiv.org/abs/2110.08483)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5557864.svg)](https://doi.org/10.5281/zenodo.5557864)
@@ -10,7 +10,7 @@
 [![License](https://img.shields.io/badge/License-MIT-blue)](https://opensource.org/licenses/MIT)
 [![Downloads](https://img.shields.io/pypi/dm/sdtf.svg)](https://pypi.org/project/sdtf/#files)
 
-`SDTF` (**S**treaming **D**ecision **T**rees & **F**orests) is for exploring streaming options of decision trees and random forests.
+`XTrees` and `XForests` (**E**xtremely **S**imple **S**treaming **T**rees & **F**orests) explore simple streaming options of decision trees and random forests.
 
 The package includes two ensemble implementations (**Stream Decision Forest** and **Cascade Stream Forest**).
 

@@ -1,0 +1,112 @@
+% This file was adapted from ICLR2022_conference.tex example provided for the ICLR conference
+\documentclass{article} % For LaTeX2e
+\usepackage{collas2025_conference,times}
+\usepackage{easyReview}
+
+% Optional math commands from https://github.com/goodfeli/dlbook_notation.
+% \input{math_commands.tex}
+
+% Math
+\usepackage{amsfonts,amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+
+% Theorems
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{remark}[theorem]{Remark}
+
+% Hyperref
+\usepackage{hyperref}
+
+% Table
+\usepackage{wrapfig}
+
+% Figure
+\usepackage{graphicx}
+
+% Algorithm
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+% Please leave these options as they are
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+linkcolor=red,
+filecolor=magenta,
+urlcolor=blue,
+citecolor=purple,
+pdftitle={SSF},
+pdfpagemode=FullScreen,
+}
+
+\makeatletter
+\renewcommand{\And}{\end{tabular}\hspace{11em}\begin{tabular}[t]{c}}  % reduce from default 6em or so
+\makeatother
+
+
+
+\title{Extremely Simple Streaming Forest}
+
+% Authors must not appear in the submitted version. They should be hidden
+% as long as the \collasfinalcopy macro remains commented out below.
+% Non-anonymous submissions will be rejected without review.
+\author{Haoyin Xu \\
+Department of Biomedical Engineering\\
+Johns Hopkins University\\
+USA \\
+\texttt{hx@jhu.edu} \\
+\And 
+Jayanta Dey \\
+Department of Biomedical Engineering\\
+Johns Hopkins University\\
+USA \\
+\texttt{jdey4@jhmi.edu} \\
+\AND
+Sambit Panda\\
+Department of Biomedical Engineering\\
+Johns Hopkins University\\
+USA \\
+\texttt{spanda3@jhu.edu} \\
+\And 
+Joshua T. Vogelstein\\
+Department of Biomedical Engineering\\
+Johns Hopkins University\\
+USA \\
+\texttt{jovo@jhu.edu}
+}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to \LaTeX{} to determine where to break
+% the lines. Using \AND forces a linebreak at that point. So, if \LaTeX{}
+% puts 3 of 4 authors names on the first line, and the last on the second
+% line, try using \AND instead of \And before the third author name.
+
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+
+% \collasfinalcopy % Uncomment for camera-ready version, but NOT for submission.
+
+\preprintcopy % Uncomment for the preprint version, but NOT for submission.
+\setlength {\marginparwidth }{2cm}
+\begin{document}
+
+
+\maketitle
+\input{content.tex}
+
+% \bibliography{collas2025_conference}
+\bibliography{ref}
+\bibliographystyle{collas2025_conference}
+\clearpage
+\appendix
+\input{appendix.tex}
+\end{document}

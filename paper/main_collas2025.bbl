@@ -1,0 +1,230 @@
+\begin{thebibliography}{44}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Abdulsalam et~al.(2007)Abdulsalam, Skillicorn, and Martin]{abdulsalam_streaming_2007}
+Hanady Abdulsalam, David~B. Skillicorn, and Patrick Martin.
+\newblock Streaming {Random} {Forests}.
+\newblock In \emph{11th {International} {Database} {Engineering} and {Applications} {Symposium} ({IDEAS} 2007)}, pp.\  225--232, 2007.
+
+\bibitem[Alimoglu \& Alpaydin(1996)Alimoglu and Alpaydin]{alimoglu_methods_1996}
+Fevzi Alimoglu and Ethem Alpaydin.
+\newblock Methods of {Combining} {Multiple} {Classifiers} {Based} on {Different} {Representations} for {Pen}-based {Handwritten} {Digit} {Recognition}.
+\newblock In \emph{Proceedings of the {Fifth} {Turkish} {Artificial} {Intelligence} and {Artificial} {Neural} {Networks} {Symposium} ({TAINN} 96}, 1996.
+
+\bibitem[Alpaydin \& Alimoglu(1998)Alpaydin and Alimoglu]{alpaydin_pen-based_1998}
+E.~Alpaydin and Fevzi. Alimoglu.
+\newblock Pen-{Based} {Recognition} of {Handwritten} {Digits}, 1998.
+
+\bibitem[Amit \& Geman(1997)Amit and Geman]{amit_shape_1997}
+Yali Amit and Donald Geman.
+\newblock Shape {Quantization} and {Recognition} with {Randomized} {Trees}.
+\newblock \emph{Neural Computation}, 9\penalty0 (7):\penalty0 1545--1588, July 1997.
+
+\bibitem[Athey et~al.(2018)Athey, Tibshirani, and Wager]{athey_generalized_2018}
+Susan Athey, Julie Tibshirani, and Stefan Wager.
+\newblock Generalized {Random} {Forests}.
+\newblock arXiv:1610.01271 [stat], April 2018.
+\newblock URL \url{http://arxiv.org/abs/1610.01271}.
+
+\bibitem[Ben-Haim \& Tom-Tov(2010)Ben-Haim and Tom-Tov]{ben-haim_streaming_2010}
+Yael Ben-Haim and Elad Tom-Tov.
+\newblock A {Streaming} {Parallel} {Decision} {Tree} {Algorithm}.
+\newblock \emph{Journal of Machine Learning Research}, 11\penalty0 (Feb):\penalty0 849--872, 2010.
+
+\bibitem[Biau et~al.(2008)Biau, Devroye, and Lugosi]{biau_consistency_2008}
+G{\'e}rard Biau, Luc Devroye, and G{\'a}bor Lugosi.
+\newblock Consistency of {Random} {Forests} and {Other} {Averaging} {Classifiers}.
+\newblock \emph{Journal of Machine Learning Research}, 9\penalty0 (66):\penalty0 2015--2033, 2008.
+
+\bibitem[Bifet \& Gavalda(2009)Bifet and Gavalda]{bifet_adaptive_2009}
+Albert Bifet and Ricard Gavalda.
+\newblock Adaptive learning from evolving data streams.
+\newblock In \emph{International {Symposium} on {Intelligent} {Data} {Analysis}}, pp.\  249--260. Springer, 2009.
+
+\bibitem[Bischl et~al.(2019)Bischl, Casalicchio, Feurer, Hutter, Lang, Mantovani, Rijn, and Vanschoren]{bischl_openml_2019}
+Bernd Bischl, Giuseppe Casalicchio, Matthias Feurer, Frank Hutter, Michel Lang, Rafael~G. Mantovani, Jan N.~van Rijn, and Joaquin Vanschoren.
+\newblock {OpenML} {Benchmarking} {Suites}.
+\newblock 2019.
+
+\bibitem[Breiman(2001)]{breiman_random_2001}
+Leo Breiman.
+\newblock Random {Forests}.
+\newblock \emph{Machine Learning}, 45\penalty0 (1):\penalty0 5--32, 2001.
+
+\bibitem[Caruana \& Niculescu-Mizil(2006)Caruana and Niculescu-Mizil]{caruana_empirical_2006}
+Rich Caruana and Alexandru Niculescu-Mizil.
+\newblock An {Empirical} {Comparison} of {Supervised} {Learning} {Algorithms}.
+\newblock In \emph{Proceedings of the 23rd {International} {Conference} on {Machine} {Learning}}, {ICML} '06, pp.\  161--168, New York, NY, USA, 2006. ACM.
+
+\bibitem[Caruana et~al.(2008)Caruana, Karampatziakis, and Yessenalina]{caruana_empirical_2008}
+Rich Caruana, Nikos Karampatziakis, and Ainur Yessenalina.
+\newblock An empirical evaluation of supervised learning in high dimensions.
+\newblock In \emph{Proceedings of the 25th international conference on {Machine} learning}, pp.\  96--103, New York, New York, USA, July 2008. ACM.
+
+\bibitem[Chen \& Guestrin(2016)Chen and Guestrin]{chen_xgboost_2016}
+Tianqi Chen and Carlos Guestrin.
+\newblock {XGBoost}: {A} {Scalable} {Tree} {Boosting} {System}.
+\newblock In \emph{Proceedings of the 22nd {ACM} {SIGKDD} {International} {Conference} on {Knowledge} {Discovery} and {Data} {Mining}}, {KDD} '16, pp.\  785--794, New York, NY, USA, August 2016. Association for Computing Machinery.
+
+\bibitem[Dey et~al.(2024)Dey, Geisa, Mehta, Tomita, Helm, Xu, Eaton, Dick, Priebe, and Vogelstein]{geisa_towards_2021}
+Jayanta Dey, Ali Geisa, Ronak Mehta, Tyler~M. Tomita, Hayden~S. Helm, Haoyin Xu, Eric Eaton, Jeffery Dick, Carey~E. Priebe, and Joshua~T. Vogelstein.
+\newblock Towards a theory of out-of-distribution learning.
+\newblock arXiv:2109.14501 [stat], June 2024.
+\newblock URL \url{http://arxiv.org/abs/2109.14501}.
+
+\bibitem[Domingos \& Hulten(2000)Domingos and Hulten]{domingos_mining_2000}
+Pedro Domingos and Geoff Hulten.
+\newblock Mining {High}-{Speed} {Data} {Streams}.
+\newblock In \emph{Proceedings of the {Sixth} {ACM} {SIGKDD} {International} {Conference} on {Knowledge} {Discovery} and {Data} {Mining}}, {KDD} '00, pp.\  71--80, New York, NY, USA, 2000. Association for Computing Machinery.
+
+\bibitem[Fern{\'a}ndez-Delgado et~al.(2014)Fern{\'a}ndez-Delgado, Cernadas, Barro, and Amorim]{fernandez-delgado_we_2014}
+Manuel Fern{\'a}ndez-Delgado, Eva Cernadas, Sen{\'e}n Barro, and Dinani Amorim.
+\newblock Do we {Need} {Hundreds} of {Classifiers} to {Solve} {Real} {World} {Classification} {Problems}?
+\newblock \emph{Journal of Machine Learning Research}, 15\penalty0 (90):\penalty0 3133--3181, 2014.
+
+\bibitem[Feurer et~al.(2019)Feurer, Rijn, Kadra, Gijsbers, Mallik, Ravi, Mueller, Vanschoren, and Hutter]{feurer_openml-python_2019}
+Matthias Feurer, Jan N.~van Rijn, Arlind Kadra, Pieter Gijsbers, Neeratyoy Mallik, Sahithya Ravi, Andreas Mueller, Joaquin Vanschoren, and Frank Hutter.
+\newblock {OpenML}-{Python}: an extensible {Python} {API} for {OpenML}.
+\newblock 2019.
+
+\bibitem[Friedman(2001)]{friedman_greedy_2001}
+Jerome~H. Friedman.
+\newblock Greedy function approximation: {A} gradient boosting machine.
+\newblock \emph{The Annals of Statistics}, 29\penalty0 (5):\penalty0 1189--1232, October 2001.
+
+\bibitem[Gomes et~al.(2019)Gomes, Read, Bifet, Barddal, and Gama]{gomes_machine_2019}
+Heitor~Murilo Gomes, Jesse Read, Albert Bifet, Jean~Paul Barddal, and Jo{\~a}o Gama.
+\newblock Machine learning for streaming data: state of the art, challenges, and opportunities.
+\newblock \emph{ACM SIGKDD Explorations Newsletter}, 21\penalty0 (2):\penalty0 6--22, November 2019.
+
+\bibitem[Hoeffding(1994)]{hoeffding_probability_1994}
+Wassily Hoeffding.
+\newblock Probability {Inequalities} for sums of {Bounded} {Random} {Variables}.
+\newblock In N.~I. Fisher and P.~K. Sen (eds.), \emph{The {Collected} {Works} of {Wassily} {Hoeffding}}, Springer {Series} in {Statistics}, pp.\  409--426. Springer, New York, NY, 1994.
+
+\bibitem[{Joblib developers}(2022)]{joblib_developers_joblibjoblib_2022}
+{Joblib developers}.
+\newblock joblib/joblib, January 2022.
+
+\bibitem[Jordan \& Mitchell(2015)Jordan and Mitchell]{jordan_machine_2015}
+M.~I. Jordan and T.~M. Mitchell.
+\newblock Machine learning: {Trends}, perspectives, and prospects.
+\newblock \emph{Science}, 349\penalty0 (6245):\penalty0 255--260, 2015.
+
+\bibitem[Khannouz \& Glatard(2020)Khannouz and Glatard]{khannouz_benchmark_2020}
+Martin Khannouz and Tristan Glatard.
+\newblock A {Benchmark} of {Data} {Stream} {Classification} for {Human} {Activity} {Recognition} on {Connected} {Objects}.
+\newblock \emph{Sensors}, 20\penalty0 (22), 2020.
+
+\bibitem[Krizhevsky(2012)]{krizhevsky_learning_2012}
+Alex Krizhevsky.
+\newblock Learning {Multiple} {Layers} of {Features} from {Tiny} {Images}.
+\newblock \emph{University of Toronto}, 2012.
+
+\bibitem[Kumar(2017)]{kumar_scikit-gardenscikit-garden_2017}
+M~Kumar.
+\newblock Scikit-garden/scikit-garden: {A} garden for scikit-learn compatible trees.
+\newblock \emph{Accessed: Apr}, 13:\penalty0 2018, 2017.
+
+\bibitem[Lakshminarayanan et~al.(2014)Lakshminarayanan, Roy, and Teh]{lakshminarayanan_mondrian_2014}
+Balaji Lakshminarayanan, Daniel~M Roy, and Yee~Whye Teh.
+\newblock Mondrian {Forests}: {Efficient} {Online} {Random} {Forests}.
+\newblock In Z.~Ghahramani, M.~Welling, C.~Cortes, N.~Lawrence, and K.~Q. Weinberger (eds.), \emph{Advances in {Neural} {Information} {Processing} {Systems}}, volume~27. Curran Associates, Inc., 2014.
+
+\bibitem[Lakshminarayanan et~al.(2016)Lakshminarayanan, Roy, and Teh]{lakshminarayanan_mondrian_2016}
+Balaji Lakshminarayanan, Daniel~M. Roy, and Yee~Whye Teh.
+\newblock Mondrian {Forests} for {Large}-{Scale} {Regression} when {Uncertainty} {Matters}.
+\newblock In \emph{Proceedings of the 19th {International} {Conference} on {Artificial} {Intelligence} and {Statistics}}, pp.\  1478--1487. PMLR, May 2016.
+
+\bibitem[Lavanya et~al.(2017)Lavanya, Bajaj, Tank, and Jain]{lavanya_handwritten_2017}
+K~Lavanya, Shaurya Bajaj, Prateek Tank, and Shashwat Jain.
+\newblock Handwritten digit recognition using hoeffding tree, decision tree and random forests --- {A} comparative approach.
+\newblock In \emph{2017 {International} {Conference} on {Computational} {Intelligence} in {Data} {Science}({ICCIDS})}, pp.\  1--6, June 2017.
+
+\bibitem[Lecun et~al.(1998)Lecun, Bottou, Bengio, and Haffner]{lecun_gradient-based_1998}
+Y.~Lecun, L.~Bottou, Y.~Bengio, and P.~Haffner.
+\newblock Gradient-based learning applied to document recognition.
+\newblock \emph{Proceedings of the IEEE}, 86\penalty0 (11):\penalty0 2278--2324, November 1998.
+\newblock ISSN 1558-2256.
+\newblock \doi{10.1109/5.726791}.
+\newblock URL \url{https://ieeexplore.ieee.org/document/726791}.
+\newblock Conference Name: Proceedings of the IEEE.
+
+\bibitem[Liaw et~al.(2002)Liaw, Wiener, and {others}]{liaw_classification_2002}
+Andy Liaw, Matthew Wiener, and {others}.
+\newblock Classification and regression by {randomForest}.
+\newblock \emph{R news}, 2\penalty0 (3):\penalty0 18--22, 2002.
+
+\bibitem[Liu et~al.(2008)Liu, Ting, and Zhou]{liu_isolation_2008}
+Fei~Tony Liu, Kai~Ming Ting, and Zhi-Hua Zhou.
+\newblock Isolation {Forest}.
+\newblock In \emph{2008 {Eighth} {IEEE} {International} {Conference} on {Data} {Mining}}, pp.\  413--422, December 2008.
+
+\bibitem[Louppe(2015)]{louppe_understanding_2015}
+Gilles Louppe.
+\newblock Understanding {Random} {Forests}: {From} {Theory} to {Practice}.
+\newblock \emph{arXiv:1407.7502 [stat]}, June 2015.
+
+\bibitem[Montiel et~al.(2020)Montiel, Halford, Mastelini, Bolmier, Sourty, Vaysse, Zouitine, Gomes, Read, Abdessalem, and Bifet]{montiel_river_2020}
+Jacob Montiel, Max Halford, Saulo~Martiello Mastelini, Geoffrey Bolmier, Raphael Sourty, Robin Vaysse, Adil Zouitine, Heitor~Murilo Gomes, Jesse Read, Talel Abdessalem, and Albert Bifet.
+\newblock River: machine learning for streaming data in {Python}, 2020.
+
+\bibitem[Pedregosa et~al.(2011)Pedregosa, Varoquaux, Gramfort, Michel, Thirion, Grisel, Blondel, Prettenhofer, Weiss, Dubourg, Vanderplas, Passos, Cournapeau, Brucher, Perrot, and Duchesnay]{pedregosa_scikit-learn_2011}
+F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel, M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos, D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay.
+\newblock Scikit-learn: {Machine} {Learning} in {Python}.
+\newblock \emph{Journal of Machine Learning Research}, 12:\penalty0 2825--2830, 2011.
+
+\bibitem[Pfahringer et~al.(2007)Pfahringer, Holmes, and Kirkby]{pfahringer_new_2007}
+Bernhard Pfahringer, Geoffrey Holmes, and Richard Kirkby.
+\newblock New {Options} for {Hoeffding} {Trees}.
+\newblock In Mehmet~A. Orgun and John Thornton (eds.), \emph{{AI} 2007: {Advances} in {Artificial} {Intelligence}}, Lecture {Notes} in {Computer} {Science}, pp.\  90--99, Berlin, Heidelberg, 2007. Springer.
+
+\bibitem[Rampone(1998)]{rampone_splice-junction_1998}
+S.~Rampone.
+\newblock Splice-junction recognition on gene sequences ({DNA}) by {BRAIN} learning algorithm.
+\newblock In \emph{1998 {IEEE} {International} {Joint} {Conference} on {Neural} {Networks} {Proceedings}. {IEEE} {World} {Congress} on {Computational} {Intelligence} ({Cat}. {No}.{98CH36227})}, volume~1, pp.\  774--779 vol.1, 1998.
+
+\bibitem[Rodola(2022)]{rodola_giampaolopsutil_2022}
+Giampaolo Rodola.
+\newblock giampaolo/psutil, January 2022.
+
+\bibitem[Roy \& Teh(2009)Roy and Teh]{roy_mondrian_2009}
+DM~Roy and YW~Teh.
+\newblock The {Mondrian} process.
+\newblock In \emph{Advances in {Neural} {Information} {Processing} {Systems}}, 2009.
+
+\bibitem[Sarkar et~al.(2020)Sarkar, Chatterjee, Das, and Mondal]{sarkar_splice_2020}
+Rahul Sarkar, Chandra~Churh Chatterjee, Sayantan Das, and Dhiman Mondal.
+\newblock Splice {Junction} {Prediction} in {DNA} {Sequence} {Using} {Multilayered} {RNN} {Model}.
+\newblock In Suresh~Chandra Satapathy, K.~Srujan Raju, K.~Shyamala, D.~Rama Krishna, and Margarita~N. Favorskaya (eds.), \emph{Advances in {Decision} {Sciences}, {Image} {Processing}, {Security} and {Computer} {Vision}}, pp.\  39--47, Cham, 2020. Springer International Publishing.
+
+\bibitem[Towell et~al.(1991)Towell, Noordewier, and Shavlik]{towell_molecular_1991}
+G.~Towell, M.~Noordewier, and J.~Shavlik.
+\newblock Molecular {Biology} ({Splice}-junction {Gene} {Sequences}), 1991.
+
+\bibitem[van~de Ven \& Tolias(2019)van~de Ven and Tolias]{van_de_ven_three_2019}
+Gido~M. van~de Ven and Andreas~S. Tolias.
+\newblock Three scenarios for continual learning.
+\newblock \emph{arXiv:1904.07734 [cs, stat]}, April 2019.
+
+\bibitem[Vanschoren et~al.(2013)Vanschoren, van Rijn, Bischl, and Torgo]{vanschoren_openml_2013}
+Joaquin Vanschoren, Jan~N. van Rijn, Bernd Bischl, and Luis Torgo.
+\newblock {OpenML}: {Networked} {Science} in {Machine} {Learning}.
+\newblock \emph{SIGKDD Explorations}, 15\penalty0 (2):\penalty0 49--60, 2013.
+
+\bibitem[Xiao et~al.(2017)Xiao, Rasul, and Vollgraf]{xiao_fashion-mnist_2017}
+Han Xiao, Kashif Rasul, and Roland Vollgraf.
+\newblock Fashion-{MNIST}: a {Novel} {Image} {Dataset} for {Benchmarking} {Machine} {Learning} {Algorithms}.
+\newblock arXiv:1708.07747 [cs], September 2017.
+\newblock URL \url{http://arxiv.org/abs/1708.07747}.
+
+\bibitem[Ziegler \& K{\"o}nig(2014)Ziegler and K{\"o}nig]{ziegler_mining_2014}
+Andreas Ziegler and Inke~R. K{\"o}nig.
+\newblock Mining data with random forests: current options for real-world applications.
+\newblock \emph{WIREs Data Mining and Knowledge Discovery}, 4\penalty0 (1):\penalty0 55--63, 2014.
+
+\end{thebibliography}
