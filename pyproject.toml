@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sdtf"
+version = "0.2.0"
+description = "Streaming Decision Trees & Forests. Based on scikit-learn."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.9"
+authors = [
+    { name = "Haoyin Xu", email = "haoyinxu@gmail.com" },
+]
+keywords = ["Streaming Trees", "Machine Learning", "Decision Trees"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "numpy",
+    "scipy",
+    "scikit-learn>=1.0",
+    "joblib",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+]
+viz = [
+    "matplotlib",
+    "seaborn",
+]
+
+[project.urls]
+Homepage = "https://github.com/jovo/SDTF"
+Documentation = "https://sdtf.neurodata.io/"
+Repository = "https://github.com/jovo/SDTF"
+
+[tool.setuptools.packages.find]
+include = ["sdtf*"]

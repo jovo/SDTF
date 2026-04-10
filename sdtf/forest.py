@@ -1,37 +1,41 @@
 """
 Main Author: Haoyin Xu
 Corresponding Email: haoyinxu@gmail.com
+
+Modified to work with standard scikit-learn (no custom fork required).
+Each tree is refit on its bootstrap sample from the new batch, which
+approximates the streaming behaviour of the original scikit-learn-stream fork.
 """
-# import the necessary packages
 import numpy as np
 from scipy import stats
 
-# NOTE: the sklearn dependence is based on
-# personal fork and not corresponding to
-# the official scikit-learn repository
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble._forest import (
     _get_n_samples_bootstrap,
     _generate_sample_indices,
-    _generate_unsampled_indices,
 )
-from sklearn.utils import check_random_state, compute_sample_weight
+from sklearn.base import BaseEstimator, ClassifierMixin
 from sklearn.utils.validation import check_X_y, check_array, check_is_fitted
 from sklearn.metrics import accuracy_score
 from joblib import Parallel, delayed
 
 
-def _partial_fit(tree, X, y, n_samples_bootstrap, classes):
-    """Internal function to partially fit a tree."""
+def _fit_tree(tree, X, y, n_samples_bootstrap, classes):
+    """Fit a tree on a bootstrap sample of the batch."""
     indices = _generate_sample_indices(
         tree.random_state, X.shape[0], n_samples_bootstrap
     )
-    tree.partial_fit(X[indices, :], y[indices], classes=classes)
-
+    tree.fit(X[indices, :], y[indices])
     return tree
 
 
-class StreamDecisionForest:
+def _majority_vote(results):
+    """Compute majority vote across tree predictions (scipy >=1.9 compatible)."""
+    mode_result = stats.mode(results, axis=0)
+    return mode_result.mode.ravel()
+
+
+class StreamDecisionForest(ClassifierMixin, BaseEstimator):
     """
     A class used to represent a naive ensemble of
     random stream decision trees.
@@ -117,7 +121,7 @@ class StreamDecisionForest:
 
     def fit(self, X, y, classes=None):
         """
-        Partially fits the forest to data X with labels y.
+        Fits the forest to data X with labels y, resetting any prior state.
 
         Parameters
         ----------
@@ -203,7 +207,7 @@ class StreamDecisionForest:
 
             # Generate new trees
             new_trees = Parallel(n_jobs=self.n_jobs)(
-                delayed(_partial_fit)(
+                delayed(_fit_tree)(
                     DecisionTreeClassifier(
                         max_features=self.max_features, splitter=self.splitter
                     ),
@@ -221,7 +225,7 @@ class StreamDecisionForest:
 
         # Update existing stream decision trees
         trees = Parallel(n_jobs=self.n_jobs)(
-            delayed(_partial_fit)(
+            delayed(_fit_tree)(
                 tree,
                 X,
                 y,
@@ -255,12 +259,10 @@ class StreamDecisionForest:
             delayed(tree.predict)(X) for tree in self.estimators_
         )
 
-        major_result = stats.mode(results)[0][0]
-
-        return major_result
+        return _majority_vote(results)
 
 
-class CascadeStreamForest:
+class CascadeStreamForest(ClassifierMixin, BaseEstimator):
     """
     A class used to represent a cascading ensemble of
     stream decision trees.
@@ -326,7 +328,7 @@ class CascadeStreamForest:
 
     def fit(self, X, y, classes=None):
         """
-        Partially fits the forest to data X with labels y.
+        Fits the forest to data X with labels y.
 
         Parameters
         ----------
@@ -383,7 +385,7 @@ class CascadeStreamForest:
 
         # Update existing stream decision trees
         trees = Parallel(n_jobs=self.n_jobs)(
-            delayed(_partial_fit)(
+            delayed(_fit_tree)(
                 tree, X, y, n_samples_bootstrap=n_samples_bootstrap, classes=classes
             )
             for tree in self.estimators_
@@ -396,7 +398,7 @@ class CascadeStreamForest:
             sdt = DecisionTreeClassifier(
                 splitter=self.splitter, max_features=self.max_features
             )
-            _partial_fit(
+            _fit_tree(
                 sdt, X, y, n_samples_bootstrap=n_samples_bootstrap, classes=classes
             )
             self.estimators_.append(sdt)
@@ -424,6 +426,4 @@ class CascadeStreamForest:
             delayed(tree.predict)(X) for tree in self.estimators_
         )
 
-        major_result = stats.mode(results)[0][0]
-
-        return major_result
+        return _majority_vote(results)
